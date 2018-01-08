@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	<title>Login App</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+      <header class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            
+            {{#if user}}
+              <li class="nav-item">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/logout">Logout</a>
+              </li>
+            {{else}}
+              <li class="nav-item">
+              <a class="nav-link" href="/users/login">Login</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/users/register">Register</a>
+              </li>
+            {{/if}}      
+          </ul>
+        </nav>
+        <h3 class="text-muted">Login App</h3>
+      </header>
+      <main role="main">       
+        <div class="row">
+          <div class="col-lg-12">
+            {{#if error}}             
+                <div class="alert alert-danger alert-dismissable">{{error}} <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>                    
+            {{/if}}            
+            {{#if error_msg}}             
+                <div class="alert alert-danger alert-dismissable">{{error_msg}} <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>                    
+            {{/if}}
+
+            {{#if success_msg}}             
+                <div class="alert alert-success alert-dismissable">{{success_msg}} <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button></div>                    
+            {{/if}}
+            {{{body}}}
+          </div>         
+        </div>
+      </main>
+
+      <footer class="footer">
+        <p>&copy; SysteRapid 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+	
+</body>
+</html>
